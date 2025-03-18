@@ -11,7 +11,7 @@ class MainController():
         #step 2 bind commands
         self.view.bind_commands()
     def upload(self):
-        self.view.request_file()
+        self.selected_file = self.view.request_file()
     def refresh(self):
         self.view.update_ip_list(self.devices)
 
