@@ -38,6 +38,15 @@ class MainView():
                             relief=tk.FLAT,
                             width=7,
                             height=1)
+        self.alias_label = tk.Label(self.root,
+                                text=f"UNKNOWN",
+                                fg="white",
+                                bg="#137fad",
+                                font=("Bookman Old Style", 15, "bold"),
+                                relief=tk.FLAT,
+                                width=7,
+                                height=1)
+        self.alias_label.pack(pady="5")
         self.refresh.pack(pady="5")
     def update_ip_list(self, devices):
         # update device ip list  with the new devices
@@ -53,3 +62,5 @@ class MainView():
         # bind the commands to the buttons
         self.upload.config(command=self.callbacks["upload"])
         self.refresh.config(command=self.callbacks["refresh"])
+    def update_alias_label(self, alias):
+        self.alias_label.config(text=f"Others will see you as {alias}")
