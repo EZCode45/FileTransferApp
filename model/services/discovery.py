@@ -64,7 +64,7 @@ class DeviceDiscoveryService():
 
         while True:
             data, addr = sock.recvfrom(1024) #Attempt message reception through bound port
-            if data.decode() == self.DISCOVERY_MSG and addr[0] != self.local_ip:
+            if data.decode() == self.DISCOVERY_MSG and addr[0] != self.local_ip and self.DISCOVERY_MSG and addr[0] != '127.0.0.1':
                 if addr[0] not in self.discovered_devices:
                     self.discovered_devices.append(addr[0]) #Store discovered address
                     print(f"Discovered device {addr[0]} with message {data}")
@@ -74,7 +74,7 @@ class DeviceDiscoveryService():
         Starts the discovery listener in a separate background thread without 
         blocking execution of the calling thread, while still being able to retrieve 
         their results when needed.
-
+            
         This allows the application to run while continuously detecting devices.
 
         A thread can be flagged as a "daemon thread". 
