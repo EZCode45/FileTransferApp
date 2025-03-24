@@ -7,8 +7,6 @@ class MainController():
         self.model = model
         self.view = view
 
-        #test
-        self.devices = ["0.0.0.0", "192.10.0.2"]
         self.local_ip  = self.model.local_ip
         if self.local_ip:
             print("Local IP: ", self.local_ip)
@@ -23,7 +21,8 @@ class MainController():
 
     def refresh(self):
         devices = self.model.get_discovered_devices()
-        self.view.update_device_list(devices)
+        print("Discovered devices: ", devices)
+        self.view.update_ip_list(devices)
 
     def upload(self):
         selected_file = self.view.request_file()

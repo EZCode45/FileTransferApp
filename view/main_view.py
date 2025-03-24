@@ -10,26 +10,30 @@ class MainView():
         self.root = root
         self.root.geometry("300x500")
         self.root.title("File Sharing APP")
+        root.configure(bg="white")
         self.callbacks = dict()
+        self.alias_label = tk.Label(self.root,
+                        text=f"UNKNOWN",
+                        fg="white",
+                        bg="#137fad",
+                        font=("Bookman Old Style", 10, "bold"),
+                        relief=tk.FLAT)
         self.title = tk.Label(root,
                           text="File Sharing APP",
                           fg="Blue", bg="white",
                           font=("Arial", 20))
-        self.title.pack(padx="2")
         self.ip_list = tk.Listbox(root,
                             bg="#137fad",
                             fg = "white",
                             font=("Bookman Old Style", 15, "bold"),
                             height=5, width=50,
                             relief=tk.FLAT)
-        self.ip_list.pack(pady="10")
         self.upload =  tk.Button(root,
                             text="Upload",
                             fg="white",
                             bg="#137fad",
                             font=("Bookman Old Style", 15, "bold"),
                             relief=tk.FLAT)
-        self.upload.pack(pady="100")
         self.refresh = tk.Button(root,
                             text="Refresh",
                             fg="white",
@@ -38,15 +42,10 @@ class MainView():
                             relief=tk.FLAT,
                             width=7,
                             height=1)
-        self.alias_label = tk.Label(self.root,
-                                text=f"UNKNOWN",
-                                fg="white",
-                                bg="#137fad",
-                                font=("Bookman Old Style", 15, "bold"),
-                                relief=tk.FLAT,
-                                width=7,
-                                height=1)
+        self.title.pack(padx="2")
         self.alias_label.pack(pady="5")
+        self.ip_list.pack(pady="10")
+        self.upload.pack(pady="100")
         self.refresh.pack(pady="5")
     def update_ip_list(self, devices):
         # update device ip list  with the new devices
@@ -55,7 +54,7 @@ class MainView():
         for device in devices:
             self.ip_list.insert(tk.END, device)
     def request_file(self):
-        return filedialog.askopenfilename() # type: ignore
+        return filedialog.askopenfilename()
     def add_callbacks(self, key, method):
         self.callbacks[key] = method
     def bind_commands(self):
