@@ -63,3 +63,10 @@ class MainView():
         self.refresh.config(command=self.callbacks["refresh"])
     def update_alias_label(self, alias):
         self.alias_label.config(text=f"Others will see you as {alias}")
+    def get_selected_ip(self):
+        # get the selected ip from the list
+        try:
+            selection = self.ip_list.curselection()
+            return self.ip_list.get(selection[0])
+        except IndexError:
+            return None
