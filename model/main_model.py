@@ -7,7 +7,7 @@ class MainModel():
     '''
     def __init__(self, selected_ip: None, file_path: None):
         self.discovery_service = DeviceDiscoveryService()
-        self.transfer_service = FileTransferService()
+        self.transfer_service = FileTransferService(selected_ip, file_path)
         self.selected_ip = selected_ip
         self.file_path = file_path
 
