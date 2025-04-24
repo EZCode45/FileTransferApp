@@ -21,7 +21,9 @@ class MainModel():
         self.discovery_service.broadcast_discovery()
         return self.discovery_service.discovered_devices
     def set_file_path(self, new_file_path):
-    def set_selected_ip(self, new_selected_ ip):
+        self.file_path = new_file_path
+        self.transfer_service.set_file_path(new_file_path)
+    def set_selected_ip(self, new_selected_ip):
         self.selected_ip = new_selected_ip
         self.transfer_service.set_transfer_ip(new_selected_ip)
         self.transfer_service.set_file_path(self.file_path)
