@@ -48,6 +48,9 @@ class MainView():
         self.upload.pack(pady="100")
         self.refresh.pack(pady="5")
     def update_ip_list(self, devices):
+        # clear the ip list and add the new devices
+        for i in range(self.ip_list.size()):
+            self.ip_list.delete(0, tk.END)
         # update device ip list  with the new devices
         self.ip_list.delete(0, tk.END)
         self.ip_list

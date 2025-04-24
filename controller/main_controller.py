@@ -27,4 +27,16 @@ class MainController():
 
     def upload(self):
         self.file_path = self.view.request_file()
-
+        if self.file_path:
+            print("File path: ", self.file_path)
+            self.model.set_file_path(self.file_path)
+            selected_ip = self.view.get_selected_ip()
+            if selected_ip:
+                print("Selected IP: ", selected_ip)
+                self.model.set_selected_ip(selected_ip)
+                self.model.transfer_service.send_file()
+            else:
+                print("No IP selected.")
+        else:
+            print("No file selected.")
+        self.view.update_alias_label(self.local_ip)
