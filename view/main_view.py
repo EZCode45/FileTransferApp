@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
+import random
 #fg = text color
 #bg = background color
 #font = font style and size
