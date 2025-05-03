@@ -12,6 +12,7 @@ https://docs.python.org/3/library/threading.html
 
 import socket
 import threading
+#soket code
 
 
 class DeviceDiscoveryService():

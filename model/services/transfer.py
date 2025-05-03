@@ -1,7 +1,7 @@
 import socket
 # import threading
 import os
-
+#soket code
 
 class FileTransferService():
     TRANSFER_PORT = 5001
