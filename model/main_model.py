@@ -1,13 +1,13 @@
-from model.services.discovery import DeviceDiscoveryService
-from model.services.transfer import FileTransferService
+from model.services.discovery import Discovery
+from model.services.transfer import Transfer
 
 class MainModel():
     '''
     Provides an encapsulation of application services
     '''
     def __init__(self, selected_ip: None, file_path: None):
-        self.discovery_service = DeviceDiscoveryService()
-        self.transfer_service = FileTransferService(selected_ip, file_path)
+        self.discovery_service = Discovery()
+        self.transfer_service = Transfer()
         self.selected_ip = selected_ip
         self.file_path = file_path
 
