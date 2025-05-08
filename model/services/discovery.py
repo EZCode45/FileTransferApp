@@ -21,3 +21,8 @@ class Discovery:
             self.ftp.quit()
         except Exception as e:
             print(f"Failed to disconnect: {e}")
+    def get_local_ip(self):
+        import socket
+        hostname = socket.gethostname()
+        local_ip = socket.gethostbyname(hostname)
+        return local_ip
