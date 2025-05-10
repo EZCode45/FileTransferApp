@@ -6,7 +6,8 @@ from ftplib import FTP as ftp
 # Initialize FTP instance
 from model.services.server import run
 ftp_server = run()  # Ensure no null bytes or encoding issues
-ftp_instance = ftp.__init__("eisha", 21)
+ftp_instance = ftp.__init__(ftp_server)
+print(ftp_instance)
 selected_ip = None
 file_path = None
 if __name__ == "__main__":

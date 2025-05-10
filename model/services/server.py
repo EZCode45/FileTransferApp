@@ -10,6 +10,6 @@ p = Portal(FTPRealm('./'), [AllowAnonymousAccess(), FilePasswordDB("pass.dat")])
 f = FTPFactory(p)
 
 def run():
-    print("FTP server running...")
     reactor.listenTCP(21, f)
     reactor.run()
+    print("FTP server running...")
