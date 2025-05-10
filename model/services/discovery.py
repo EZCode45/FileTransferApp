@@ -2,7 +2,6 @@ from ftplib import FTP as ftp
 class Discovery:
     def __init__(self, instance):
         self.ftp = instance
-        self.ftp.connect()
         self.ftp.login()
     def find_devices(self):
         devices = []
