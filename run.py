@@ -6,10 +6,11 @@ from ftplib import FTP as ftp
 # Initialize FTP instance
 from model.services.server import run  # Ensure no null bytes or encoding issues
 ftp_instance = ftp()
-ftp_instance.connect('localhost', 21)
+ftp_instance.connect('10.1.10.109', 21)
 ftp_instance.login('admin', 'uhvhgjbvdjbhgoefijrwpjnbheori2pjebfgvfyr98u34ijrefbgyv99rihtgy58u9rihgvy78furhvgyiufrhqgvfdysi8dgetuh3gy8fuhbvhdwiqueohjvfdijwbavhfwri3kejfbvjsdpockjbhvuiforjfbvhjxciodajhfvgtu9ri0fjvhbsdfiesojhvbhgkrfijdhbvjicojhbdkgjiofjvbdjiapofjhbgjogifjvhhsfiu9ghif0sdiuchvgfur9efhdvdicuuhguifdhvjcudfshgfiodbadfuwhbfhjdkjcbfhdjkjhvbfjdkcnabvngjlfgmbjdl;vkbejfkwnvjbghitjorfjkvbghifjkbhgrjbghrfjvbhgfjhbghrjfbhjfvhfjvbh')
-print(ftp_instance)
+# print(ftp_instance)
 # ftp_instance.connect()
+run()
 selected_ip = None
 file_path = None
 if __name__ == "__main__":

@@ -11,5 +11,6 @@ f = FTPFactory(p)
 
 def run():
     reactor.listenTCP(21, f)
-    reactor.run()
     print("FTP server running...")
+    reactor.run()
+# run()
