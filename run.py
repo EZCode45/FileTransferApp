@@ -4,6 +4,8 @@ from view.main_view import MainView
 from controller.main_controller import MainController
 from ftplib import FTP as ftp
 # Initialize FTP instance
+server_ip = '127.0.0.1'
+server_port = 21
 from model.services.server import run  # Ensure no null bytes or encoding issues
 ftp_instance = ftp()
 ftp_instance.connect('127.0.0.1', 21)
