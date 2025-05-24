@@ -4,7 +4,7 @@ Core Functionalities
 *Detect devices on same net work connected to the application - Front end - device list(clickable) show device name or alias - Back end - Socket module for device detection
 
 
-*File transfer trough sockets - Back End - File reciver is the server and sender is the client
+*File transfer trough ftplib - Back End - File reciver is the server and sender is the client
 
 
 *Ask reciver if connection to client is ok - Front End - pop up on device asking if the connection is ok - back End - import TCP server 
