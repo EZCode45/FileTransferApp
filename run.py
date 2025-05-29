@@ -18,5 +18,5 @@ selected_ip = None
 file_path = None
 if __name__ == "__main__":
     root = tk.Tk()
-    controller = MainController(MainModel(selected_ip=selected_ip, file_path=file_path, ftp_instance=ftp_instance), MainView(root))
+    controller = MainController(MainModel(selected_ip, file_path, ftp_instance), MainView(root))
     root.mainloop()
