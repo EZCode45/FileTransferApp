@@ -3,10 +3,10 @@ from model.main_model import MainModel
 from view.main_view import MainView
 from controller.main_controller import MainController
 from ftplib import FTP
+from model.services.server import run
 # Initialize FTP instance
 server_ip = '127.0.0.1'
 server_port = 21
-from model.services.server import run  # Ensure no null bytes or encoding issues
 run()
 ftp = FTP(server_ip, server_port)
 ftp.connect(server_ip, server_port)
@@ -19,4 +19,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     controller = MainController(MainModel(selected_ip, file_path, ftp), MainView(root))
     root.mainloop()
-    ftp.quit()  # Ensure the FTP connection is closed when the application exits
+ftp.quit()  # Ensure the FTP connection is closed when the application exits
