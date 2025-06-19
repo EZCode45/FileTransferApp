@@ -19,4 +19,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     controller = MainController(MainModel(selected_ip, file_path, ftp), MainView(root))
     root.mainloop()
-ftp.quit()  # Ensure the FTP connection is closed when the application exits
+    ftp.quit()  # Ensure the FTP connection is closed when the application exits
