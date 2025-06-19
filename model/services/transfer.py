@@ -12,4 +12,9 @@ class Transfer:
         self.transfer_ip = transfer_ip
 
     def send_file(self, file_path, alias):
-        pass
+        with open(file_path, 'rb') as file:
+            try:
+                self.ftp.storbinary(f'STOR {alias}', file)
+            except Exception as e:
+                print(f"Failed to send file {file_path} to {self.transfer_ip}: {e}")
+                

@@ -5,7 +5,7 @@ from controller.main_controller import MainController
 from ftplib import FTP
 from model.services.server import run
 # Initialize FTP instance
-server_ip = '127.0.0.1'
+server_ip = '10.1.10.109'
 server_port = 21
 run()
 ftp = FTP(server_ip, server_port)
