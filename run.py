@@ -9,7 +9,7 @@ server_ip = '10.1.10.109'
 server_port = 21
 run()
 ftp = FTP(server_ip, server_port)
-ftp.connect(server_ip, server_port)
+# ftp.connect(server_ip, server_port)
 ftp.retrlines('LIST')  # List files in the FTP server root directory
 selected_ip = None
 file_path = None
