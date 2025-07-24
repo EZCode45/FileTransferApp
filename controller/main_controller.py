@@ -9,14 +9,14 @@ class MainController():
         self.view = view
         self.local_ip  = self.model.local_ip
         self.file_path = None
-        # self.used_aliases = []
-        # self.alias = f"FTPUSER_{random.randint(0, 9999999999)}"
-        # self.used_aliases.append(self.alias)
-        # if self.alias in self.used_aliases:
-        #     self.used_aliases.remove(self.alias)
-        #     self.alias = f"FTPUSER_{random.randint(0, 9999999999)}"
-        #     self.used_aliases.append(self.alias)
-        # self.view.update_alias_label(self.alias)
+        self.used_aliases = []
+        self.alias = f"FTPUSER_{random.randint(0, 9999999999)}"
+        self.used_aliases.append(self.alias)
+        if self.alias in self.used_aliases:
+            self.used_aliases.remove(self.alias)
+            self.alias = f"FTPUSER_{random.randint(0, 9999999999)}"
+            self.used_aliases.append(self.alias)
+        self.view.update_alias_label(self.alias)
     def transfer(self):
         self.file_path = self.view.request_file()
         if self.file_path:
