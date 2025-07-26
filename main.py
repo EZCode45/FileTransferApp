@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+# from starlette.responses import FileResponse 
 
 app = FastAPI()
 
@@ -13,12 +14,12 @@ class Item(BaseModel):
     price: float
     is_offer: Union[bool, None] = None
 
-templates = Jinja2Templates(directory="/")
-app.mount("/", StaticFiles(directory="/"))
+templates = Jinja2Templates(directory="templates")
+# app.mount("/static", StaticFiles(directory="FILETRANSFERAPP/static"))
 
 @app.get("/")
 def read_root(request: Request):
-    return templates.TemplateResponse("mainscreen.html", context = {"request": request})
+    return templates.TemplateResponse('index.html', {"request": request})
 
 
 @app.get("/items/{item_id}")
