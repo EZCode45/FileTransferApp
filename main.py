@@ -1,9 +1,10 @@
 from typing import Union
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 # from starlette.responses import FileResponse 
 
 app = FastAPI()
@@ -20,6 +21,15 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/")
 def read_root(request: Request):
     return templates.TemplateResponse('index.html', {"request": request})
+
+
+@app.post("/button-clicked")
+async def handle_button_click(request: Request, action: str = Form(...)):
+    if action == "transferbuttonclicked":
+        return templates.TemplateResponse("response.html", {"request": request, "message": "Button clicked successfully!"})
+    if action == "FileDialogButton":
+        
+    return HTMLResponse("<h1>Unknown action</h1>")
 
 
 @app.get("/items/{item_id}")
