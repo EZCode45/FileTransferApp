@@ -5,10 +5,12 @@ from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
+import tkinter as tk
+from tkinter import filedialog as fd
 # from starlette.responses import FileResponse 
 
 app = FastAPI()
-
+file_path = ''
 
 class Item(BaseModel):
     name: str
@@ -16,7 +18,7 @@ class Item(BaseModel):
     is_offer: Union[bool, None] = None
 
 templates = Jinja2Templates(directory="templates")
-# app.mount("/static", StaticFiles(directory="FILETRANSFERAPP/static"))
+app.mount("/static", StaticFiles(directory="static"))
 
 @app.get("/")
 def read_root(request: Request):
@@ -25,10 +27,10 @@ def read_root(request: Request):
 
 @app.post("/button-clicked")
 async def handle_button_click(request: Request, action: str = Form(...)):
+    global file_path
     if action == "transferbuttonclicked":
-        return templates.TemplateResponse("response.html", {"request": request, "message": "Button clicked successfully!"})
-    if action == "FileDialogButton":
-        
+        file_path = fd.askopenfilename()
+        return templates.TemplateResponse("/index.html", {"request": request, "message": "opened filedialog"})
     return HTMLResponse("<h1>Unknown action</h1>")
 
 
